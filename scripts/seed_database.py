@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 
 DB_PATH = Path("data/suproc.db")
+EXPORT_PATH = Path("data/sample_dataset.json")
 
 def seed():
     Path("data").mkdir(exist_ok=True)
@@ -487,12 +488,31 @@ def seed():
     """, interactions)
 
     conn.commit()
+
+    # Export a JSON snapshot so evaluators can inspect the dataset without
+    # running the seed script. data/sample_dataset.json is committed to the repo.
+    conn.row_factory = sqlite3.Row
+    cur2 = conn.cursor()
+
+    def rows_to_dicts(cursor, table):
+        cursor.execute(f"SELECT * FROM {table}")
+        return [dict(r) for r in cursor.fetchall()]
+
+    snapshot = {
+        "entities":      rows_to_dicts(cur2, "entities"),
+        "professionals": rows_to_dicts(cur2, "professionals"),
+        "opportunities": rows_to_dicts(cur2, "opportunities"),
+        "interactions":  rows_to_dicts(cur2, "interactions"),
+    }
+    EXPORT_PATH.write_text(json.dumps(snapshot, indent=2, default=str))
+
     conn.close()
     print(f"Database seeded at {DB_PATH}")
     print(f"  Entities:       {len(entities)}")
     print(f"  Professionals:  {len(professionals)}")
     print(f"  Opportunities:  {len(opportunities)}")
     print(f"  Interactions:   {len(interactions)}")
+    print(f"JSON export:    {EXPORT_PATH}")
 
 
 if __name__ == "__main__":
