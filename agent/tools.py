@@ -235,7 +235,7 @@ def calculate_match_score(
 ) -> MatchScore:
     """
     Transparent scoring. All dimensions derived from dataset fields.
-    No arbitrary scores — each point is justified in the evidence dict.
+    No arbitrary scores - each point is justified in the evidence dict.
     """
     evidence: dict[str, str] = {}
 
@@ -285,7 +285,7 @@ def calculate_match_score(
         avail_score += 10.0
         evidence["availability"] = "Entity is currently available"
     elif entity.availability == "busy":
-        evidence["availability"] = "Entity is marked busy — reduced score"
+        evidence["availability"] = "Entity is marked busy - reduced score"
         avail_score += 2.0
     else:
         evidence["availability"] = "Availability unknown"
@@ -341,7 +341,7 @@ def draft_outreach(
     messages = []
     for rec in recommendations:
         e = rec.entity
-        subject = f"Procurement Enquiry — {objective}"
+        subject = f"Procurement Enquiry - {objective}"
         body = (
             f"Dear {e.name} Team,\n\n"
             f"We are {sender_context}.\n\n"

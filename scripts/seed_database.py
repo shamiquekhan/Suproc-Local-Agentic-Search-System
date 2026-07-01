@@ -72,7 +72,7 @@ def seed():
          "info@biobox.in", 1, 1, 1, None),
 
         ("SUP-004", "supplier", "PalmLeaf Naturals",
-         "Areca palm leaf products — 100% natural, food safe.",
+         "Areca palm leaf products - 100% natural, food safe.",
          "Madurai", "Tamil Nadu", "India", "packaging", "natural",
          json.dumps(["food-grade", "organic-certified"]),
          80000, 14, 1000, 7.0, "INR", "available", 4.8, 52,
@@ -131,7 +131,7 @@ def seed():
          "b2b@techstitch.in", 1, 1, 1, None),
 
         ("SUP-011", "supplier", "GreenPack Solutions",
-         "Duplicate record — same company as SUP-001.",
+         "Duplicate record - same company as SUP-001.",
          "Chennai", "Tamil Nadu", "India", "packaging", "biodegradable",
          json.dumps(["food-grade", "ISO-9001", "FSSAI"]),
          50000, 20, 5000, 8.5, "INR", "available", 4.7, 38,
@@ -196,14 +196,14 @@ def seed():
          "ops@cloudkitchenshub.in", 0, 0, 1, None),
 
         ("BUS-003", "business", "TechFlow Solutions",
-         "B2B SaaS company — looking for IT contractors.",
+         "B2B SaaS company - looking for IT contractors.",
          "Hyderabad", "Telangana", "India", "technology", "SaaS",
          None, None, None, None, None, "INR", "available", 4.6, 28,
          json.dumps(["SaaS","technology","Hyderabad"]),
          "hr@techflow.in", 1, 0, 1, None),
 
         ("SUP-017", "supplier", "ClearGlass Containers",
-         "Glass jar supplier — NOT biodegradable.",
+         "Glass jar supplier - NOT biodegradable.",
          "Chennai", "Tamil Nadu", "India", "packaging", "glass",
          json.dumps(["food-grade", "ISO-9001"]),
          80000, 15, 1000, 18.0, "INR", "available", 4.7, 55,
@@ -263,7 +263,7 @@ def seed():
          "Marketing says ISO-22000 but only ISO-9001 is verified."),
 
         ("SUP-024", "supplier", "FreshPack Coimbatore",
-         "Food-grade plastic containers — not biodegradable.",
+         "Food-grade plastic containers - not biodegradable.",
          "Coimbatore", "Tamil Nadu", "India", "packaging", "plastic",
          json.dumps(["food-grade", "BIS-certified"]),
          500000, 10, 10000, 4.0, "INR", "available", 4.6, 71,
@@ -311,7 +311,7 @@ def seed():
          5000, 30, 1000, 25.0, "INR", "available", 3.5, 2,
          json.dumps(["nano","film","Telangana","experimental"]),
          "hello@nanofilm.in", 1, 1, 1,
-         "Product still in commercial pilot — QA consistency not guaranteed."),
+         "Product still in commercial pilot - QA consistency not guaranteed."),
 
         ("SUP-030", "supplier", "PackRight Vijayawada",
          "Biodegradable containers with food-grade certification. 20-day delivery.",
@@ -405,7 +405,7 @@ def seed():
          json.dumps(["deep-learning","transformers","research"]),
          None, None, None, None,"INR","unknown",None,0,
          None,None,None,None,
-         "Profile incomplete — no contact info, no location."),
+         "Profile incomplete - no contact info, no location."),
     ]
 
     cur.executemany("""
@@ -430,7 +430,7 @@ def seed():
          "professional","sustainability","Chennai","Tamil Nadu",
          50000,80000,"INR",None,"2026-07-31","open","BUS-002",
          json.dumps(["ESG","sustainability","audit"])),
-        ("OPP-004","E-commerce Packaging — Bulk Order",
+        ("OPP-004","E-commerce Packaging - Bulk Order",
          "Looking for 50000 units of food-safe containers, South India based supplier.",
          "supplier","packaging","Chennai","Tamil Nadu",
          400000,600000,"INR",50000,"2026-07-15","open","BUS-005",
@@ -445,7 +445,7 @@ def seed():
          "professional","legal","Chennai","Tamil Nadu",
          30000,60000,"INR",None,"2026-07-20","open","BUS-001",
          json.dumps(["legal","contracts","startup"])),
-        ("OPP-007","Packaging Partner — Conflicting Requirements",
+        ("OPP-007","Packaging Partner - Conflicting Requirements",
          "Need both biodegradable AND non-biodegradable options (conflicting).",
          "supplier","packaging","Bengaluru","Karnataka",
          100000,200000,"INR",20000,"2026-09-01","open","BUS-004",

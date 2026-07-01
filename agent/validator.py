@@ -110,7 +110,7 @@ def validate_recommendations(
             rec_failures.append(ValidationFailure(
                 entity_id=e.id,
                 failure_type="zero_score",
-                detail="Match score is 0 — scoring may not have run correctly.",
+                detail="Match score is 0 - scoring may not have run correctly.",
             ))
 
         if rec_failures:

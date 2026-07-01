@@ -18,7 +18,7 @@ def display_response(resp: FinalResponse):
     req = resp.interpreted_requirement
 
     console.print(Panel(
-        f"[bold cyan]Suproc Agent — Final Response[/bold cyan]\n"
+        f"[bold cyan]Suproc Agent - Final Response[/bold cyan]\n"
         f"Validation: {resp.validation_status} (attempt {resp.validation_attempts}/3)",
         expand=False,
     ))
@@ -39,7 +39,7 @@ def display_response(resp: FinalResponse):
         e = rec.entity
         s = rec.score
         console.print(Panel(
-            f"[b]#{rec.rank} — {e.name}[/b] ({e.id})\n"
+            f"[b]#{rec.rank}: {e.name}[/b] ({e.id})\n"
             f"Location: {e.location}, {e.state}\n"
             f"Certifications: {e.certifications}\n"
             f"Capacity: {e.capacity_units} units | Delivery: {e.delivery_days} days\n"
@@ -64,7 +64,7 @@ def display_response(resp: FinalResponse):
     if resp.warnings:
         console.rule("[bold yellow]Warnings")
         for w in resp.warnings:
-            console.print(f"  [yellow]⚠[/yellow] {w}")
+            console.print(f"  [yellow]![/yellow] {w}")
 
     console.rule("[bold red]Human Approval Required")
     console.print(Panel(

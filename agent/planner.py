@@ -10,7 +10,7 @@ def build_plan(req: ParsedRequirement) -> ExecutionPlan:
         "Validate every recommendation against dataset",
         "Correct and retry if validation fails (max 3 attempts)",
         "Draft outreach messages for approved candidates",
-        "Prepare final response — awaiting human approval",
+        "Prepare final response - awaiting human approval",
     ]
     if req.preferences.sustainable_materials:
         steps.insert(2, "Apply sustainability preference filter")
