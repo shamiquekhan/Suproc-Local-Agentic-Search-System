@@ -6,7 +6,8 @@ from agent.schemas import (
     SearchResult, MatchScore, HardConstraints, Preferences, Recommendation
 )
 
-DB_PATH = Path("data/suproc.db")
+_ROOT = Path(__file__).resolve().parent.parent
+DB_PATH = _ROOT / "data" / "suproc.db"
 
 SOUTH_INDIA_STATES = {
     "Karnataka", "Tamil Nadu", "Kerala",

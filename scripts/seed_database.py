@@ -3,11 +3,12 @@ import sqlite3
 import json
 from pathlib import Path
 
-DB_PATH = Path("data/suproc.db")
-EXPORT_PATH = Path("data/sample_dataset.json")
+_ROOT = Path(__file__).resolve().parent.parent
+DB_PATH = _ROOT / "data" / "suproc.db"
+EXPORT_PATH = _ROOT / "data" / "sample_dataset.json"
 
 def seed():
-    Path("data").mkdir(exist_ok=True)
+    (_ROOT / "data").mkdir(parents=True, exist_ok=True)
     conn = sqlite3.connect(DB_PATH)
     cur = conn.cursor()
 

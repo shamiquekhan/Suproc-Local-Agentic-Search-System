@@ -2,11 +2,17 @@
 import json
 import streamlit as st
 import sqlite3
+from pathlib import Path
 
 from agent.parser import parse_requirement
 from agent.planner import build_plan
 from agent.loop import run_agent
 from agent.schemas import FinalResponse
+
+_DB_PATH = Path(__file__).resolve().parent / "data" / "suproc.db"
+if not _DB_PATH.exists():
+    from scripts.seed_database import seed
+    seed()
 
 st.set_page_config(
     page_title="Suproc Agent Dashboard",
@@ -459,7 +465,7 @@ def main():
 
         st.markdown("### ◇ Dataset")
         try:
-            conn = sqlite3.connect("data/suproc.db")
+            conn = sqlite3.connect(str(_DB_PATH))
             cur = conn.cursor()
             cur.execute("SELECT COUNT(*) FROM entities")
             entities = cur.fetchone()[0]
