@@ -4,3 +4,4 @@ rich>=13.7.0
 pytest>=8.2.0
 pytest-asyncio>=0.23.0
 faker>=25.0.0
+streamlit>=1.35.0
