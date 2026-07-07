@@ -84,9 +84,20 @@ def parse_requirement(user_request: str) -> ParsedRequirement:
             except Exception:
                 pass
 
+        entity_type = "supplier"
+        professional_keywords = ["engineer", "designer", "consultant", "analyst", "developer", "architect", "lawyer", "freelancer"]
+        opportunity_keywords = ["opportunity", "sourcing", "tender", "RFP", "contract"]
+        lower = safe.lower()
+        if any(k in lower for k in professional_keywords):
+            entity_type = "professional"
+        elif any(k in lower for k in opportunity_keywords):
+            entity_type = "opportunity"
+        elif "business" in lower and "supplier" not in lower and "vendor" not in lower:
+            entity_type = "business"
+
         req = ParsedRequirement(
             objective=user_request,
-            entity_type="supplier",
+            entity_type=entity_type,
             hard_constraints=HardConstraints(
                 locations=locations,
                 certifications=certs,
